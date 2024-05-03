@@ -77,6 +77,11 @@ public class BankAccountServiceImpl implements BankAccountService {
     }
 
     @Override
+    public List<BankAccount> getBankAccounts() {
+        return bankAccountRepository.findAll();
+    }
+
+    @Override
     public BankAccount getBankAccount(String accountId) throws BankAccountNotFoundException {
         BankAccount bankAccount = bankAccountRepository.findById(accountId)
                 .orElseThrow(() -> new BankAccountNotFoundException("Bank Account not found"));
